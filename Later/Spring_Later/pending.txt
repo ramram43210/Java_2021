@@ -1,0 +1,42 @@
+Spring boot
+
+3.REST standad - employee api
+5.web app - telesco
+6. spring data rest
+7 springboot pagination - https://www.javainuse.com/spring/SpringBootUsingPagination
+drools
+DI  - like Telusko
+Autowire - like Telusko
+mvc - send object
+JPA - complex query - Telusko
+Content negotion accept and produce - Telusco - 3 hr
+Spring data rest - Telusco
+the techcave - yt
+spring secity - tech primers
+
+
+Misc
+
+microservice
+
+Ref
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/index.html
+
+
+
+Spring:
+
+https://stackoverflow.com/questions/31294698/what-is-the-difference-between-before-after-and-afterexecution-in-spring-aop?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+Java brain - 01,03,06 [Index Cons DI],08,11,12,13[list merge],14[default-init],16,17,18,19,20,21,22
+
+
+38-47 - SpEL
+AOP,37-47
+56-74 - JDBC Template
+Bean life cycle
+CustomDateEditor, Spring PropertyPlaceholderConfigurer example - http://www.mkyong.com/tutorials/spring-tutorials/
+RequestHandledEvent in spring
+35[ Inject Prototype Into Singleton Bean in Spring]
+Need for dependency injection - http://javainsimpleway.com/need-for-dependency-injection/
+
