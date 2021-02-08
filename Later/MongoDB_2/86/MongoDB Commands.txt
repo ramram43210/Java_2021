@@ -1,0 +1,2 @@
+db.getUsers()
+db.createUser({	user: "peter",  pwd: "password",  roles:[{role: "root" , db:"admin"}]})

@@ -1,3 +1,1 @@
-Web Service
-
-https://www.guru99.com/web-service-architecture.html
+https://www.appsdeveloperblog.com/tag/rest-assured/
