@@ -19,7 +19,35 @@ public class EmployeeExceptionHandler extends ResponseEntityExceptionHandler
 	@ExceptionHandler(value = Exception.class)
 	public ResponseEntity<Object> handleAnyException(Exception ex, WebRequest request)
 	{
+		System.out.println("------Inside handleAnyException--------");
 		ErrorMessage errorMessage = new ErrorMessage(101, ex.toString(), new Date());
+		
+		return new ResponseEntity<>(errorMessage,new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@ExceptionHandler(value = NullPointerException.class)
+	public ResponseEntity<Object> handleNullPointerException(NullPointerException ex, WebRequest request)
+	{
+		System.out.println("------Inside handleNullPointerException--------");
+		ErrorMessage errorMessage = new ErrorMessage(201, ex.toString(), new Date());
+		
+		return new ResponseEntity<>(errorMessage,new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@ExceptionHandler(value = EmployeeServiceException.class)
+	public ResponseEntity<Object> handleEmployeeServiceException(EmployeeServiceException ex, WebRequest request)
+	{
+		System.out.println("------Inside EmployeeServiceException--------");
+		ErrorMessage errorMessage = new ErrorMessage(301, ex.toString(), new Date());
+		
+		return new ResponseEntity<>(errorMessage,new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@ExceptionHandler(value = {NullPointerException.class,EmployeeServiceException.class})
+	public ResponseEntity<Object> handleSpecificException(Exception ex, WebRequest request)
+	{
+		System.out.println("------Inside handleSpecificException--------");
+		ErrorMessage errorMessage = new ErrorMessage(201, ex.toString(), new Date());
 		
 		return new ResponseEntity<>(errorMessage,new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}

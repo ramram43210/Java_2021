@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ram.exception.EmployeeServiceException;
 import com.ram.model.Employee;
 
 @RestController
@@ -24,8 +25,15 @@ public class EmployeeController
 			produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<Employee> getEmployee(@PathVariable int employeeId)
 	{
-		String employeeName = null;
-		int length = employeeName.length();
+		/*
+		 * String employeeName = null; int length =
+		 * employeeName.length();
+		 */
+		
+		if(true)
+		{
+			throw new EmployeeServiceException("Employee Service Exception");
+		}
 		
 		if (employeeMap.containsKey(employeeId))
 		{
