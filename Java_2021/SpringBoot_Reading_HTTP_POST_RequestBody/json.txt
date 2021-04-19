@@ -1,0 +1,13 @@
+{
+    "name":"Peter",
+    "age":25,
+    "salary":30000
+}
+
+
+<Employee>
+    <name>Dave</name>
+    <age>55</age>
+    <salary>50000</salary>
+</Employee>
+  
