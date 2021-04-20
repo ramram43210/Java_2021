@@ -17,7 +17,10 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ram.SpringApplicationContext;
+import com.ram.dto.UserDTO;
 import com.ram.model.request.UserLoginRequestModel;
+import com.ram.service.UserService;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -57,12 +60,19 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter
 			throws IOException, ServletException
 	{
 		String userName = ((User) authResult.getPrincipal()).getUsername();
+		
+		
 
 		String token = Jwts.builder().setSubject(userName)
 				.setExpiration(
 						new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
 				.signWith(SignatureAlgorithm.HS512, SecurityConstants.TOKEN_SECRET).compact();
+		
+		UserService userService = (UserService) SpringApplicationContext.getBean("userServiceImpl");
+		UserDTO userDTO = userService.getUser(userName);
+		
 		response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
+		response.addHeader("UserID",userDTO.getUserId());
 
 	}
 

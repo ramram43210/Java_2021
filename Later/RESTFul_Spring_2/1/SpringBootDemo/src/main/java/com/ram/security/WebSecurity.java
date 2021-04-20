@@ -26,15 +26,22 @@ public class WebSecurity extends WebSecurityConfigurerAdapter
 	{
 		http.csrf().disable().authorizeRequests()
 				.antMatchers(HttpMethod.POST, SecurityConstants.SIGNUP_URL).permitAll().anyRequest()
-				.authenticated().and().addFilter(new AuthenticationFilter(authenticationManager()));
-		super.configure(http);
+				.authenticated().and().addFilter(getAuthenticationFilter()).
+				addFilter(new AutherizationFilter(authenticationManager()));
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception
 	{
 		auth.userDetailsService(userDetailsService).passwordEncoder(bcryptPasswordEncoder);
-		super.configure(auth);
+	}
+
+	public AuthenticationFilter getAuthenticationFilter() throws Exception
+	{
+		final AuthenticationFilter authenticationFilter = new AuthenticationFilter(
+				authenticationManager());
+		authenticationFilter.setFilterProcessesUrl("users/login");
+		return authenticationFilter;
 	}
 
 }
