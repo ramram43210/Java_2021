@@ -42,4 +42,32 @@ public class EmployeeController
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
+	@RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.PUT)
+	public ResponseEntity<Employee> updateEmployee(@PathVariable int employeeId, @RequestBody Employee employee)
+	{
+		if (employeeMap.containsKey(employeeId))
+		{
+			Employee storedEmployee = employeeMap.get(employeeId);
+			storedEmployee.setName(employee.getName());
+			storedEmployee.setAge(employee.getAge());
+			storedEmployee.setEmail(employee.getEmail());
+			storedEmployee.setSalary(employee.getSalary());
+
+			employeeMap.put(employeeId, storedEmployee);
+			return new ResponseEntity<Employee>(storedEmployee, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
+	@RequestMapping(value = "/employees/{employeeId}", method = RequestMethod.DELETE)
+	public ResponseEntity<Employee> deleteEmployee(@PathVariable int employeeId)
+	{
+		if (employeeMap.containsKey(employeeId))
+		{
+			employeeMap.remove(employeeId);
+			return new ResponseEntity<Employee>(HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
 }
