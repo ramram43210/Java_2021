@@ -2,6 +2,9 @@ package com.ram.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,19 +22,28 @@ public class UserController
 	@Autowired
 	private UserService userService;
 
-	@PostMapping
+	@PostMapping(consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
+			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 	public UserRest createUser(@RequestBody UserDetailsRequestModel userDetails)
 	{
 		UserRest userRest = new UserRest();
-		
+
 		UserDTO userDTO = new UserDTO();
 		BeanUtils.copyProperties(userDetails, userDTO);
-		
+
 		userService.createUser(userDTO);
 		BeanUtils.copyProperties(userDTO, userRest);
 		return null;
 	}
 
-	
+	@GetMapping(path = "/{id}",
+			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	public UserRest getUser(@PathVariable String userId)
+	{
+		UserRest userRest = new UserRest();
+		UserDTO userDTO = userService.getUserByUserId(userId);
+		BeanUtils.copyProperties(userDTO, userRest);
+		return userRest;
+	}
 
 }
