@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ram.dto.UserDTO;
+import com.ram.exception.UserServiceException;
 import com.ram.model.request.UserDetailsRequestModel;
 import com.ram.model.ui.UserRest;
 import com.ram.service.UserService;
+import com.ram.utils.ErrorMessages;
 
 @RestController
 @RequestMapping("users")
@@ -24,8 +26,13 @@ public class UserController
 
 	@PostMapping(consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-	public UserRest createUser(@RequestBody UserDetailsRequestModel userDetails)
+	public UserRest createUser(@RequestBody UserDetailsRequestModel userDetails) throws Exception
 	{
+		if(userDetails.getEmail().isEmpty())
+		{
+			throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
+		}
+		
 		UserRest userRest = new UserRest();
 
 		UserDTO userDTO = new UserDTO();
