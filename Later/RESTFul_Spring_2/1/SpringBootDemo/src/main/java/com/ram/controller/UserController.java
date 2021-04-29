@@ -62,7 +62,8 @@ public class UserController
 	@PutMapping(path = "/{id}",
 			consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE },
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-	public UserRest updateUser (@PathVariable String userId, @RequestBody UserDetailsRequestModel userDetails) throws Exception
+	public UserRest updateUser(@PathVariable String userId,
+			@RequestBody UserDetailsRequestModel userDetails) throws Exception
 	{
 		if (userDetails.getEmail().isEmpty())
 		{
@@ -74,19 +75,19 @@ public class UserController
 		UserDTO userDTO = new UserDTO();
 		BeanUtils.copyProperties(userDetails, userDTO);
 
-		UserDTO updatedUserDTO = userService.updateUser(userId,userDTO);
+		UserDTO updatedUserDTO = userService.updateUser(userId, userDTO);
 		BeanUtils.copyProperties(updatedUserDTO, userRest);
 		return userRest;
 	}
-	
+
 	@DeleteMapping(path = "/{id}")
 	public OperationStatusModel deleteUser(@PathVariable String userId)
 	{
 		OperationStatusModel operationStatusModel = new OperationStatusModel();
 		operationStatusModel.setOperationName(RequestOperationName.DELETE.name());
 		operationStatusModel.setOperationResult(RequestOperationResult.SUCCESS.name());
-		
-		UserDTO userDTO = userService.getUserByUserId(userId);
+
+		userService.deleteUser(userId);
 		return operationStatusModel;
 	}
 
