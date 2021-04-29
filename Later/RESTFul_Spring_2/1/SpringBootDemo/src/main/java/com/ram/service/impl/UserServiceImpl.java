@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 
 import com.ram.dto.UserDTO;
 import com.ram.entity.UserEntity;
+import com.ram.exception.UserServiceException;
 import com.ram.repository.UserRepository;
 import com.ram.service.UserService;
+import com.ram.utils.ErrorMessages;
 import com.ram.utils.Utils;
 
 @Service
@@ -43,7 +45,7 @@ public class UserServiceImpl implements UserService
 
 		String publicUserId = utils.generateUserId(20);
 		userEntity.setUserId(publicUserId);
-		userEntity.setEncryptedPassword(userDTO.getPassword());
+		userEntity.setEncryptedPassword(bcryptPasswordEncoder.encode(userDTO.getPassword()));
 
 		UserEntity storedUserEntity = userRepository.save(userEntity);
 
@@ -83,14 +85,52 @@ public class UserServiceImpl implements UserService
 	{
 		UserDTO returnUserDTO = new UserDTO();
 		UserEntity userEntityByUserId = userRepository.findByUserId(userId);
-		BeanUtils.copyProperties(userEntityByUserId, returnUserDTO);
 
 		if (userEntityByUserId == null)
 		{
 			throw new UsernameNotFoundException(userId);
 		}
 
+		BeanUtils.copyProperties(userEntityByUserId, returnUserDTO);
+
 		return returnUserDTO;
+	}
+
+	@Override
+	public UserDTO updateUser(String userId, UserDTO userDTO)
+	{
+		UserDTO returnUserDTO = new UserDTO();
+		UserEntity userEntityByUserId = userRepository.findByUserId(userId);
+
+		if (userEntityByUserId == null)
+		{
+			throw new UserServiceException(ErrorMessages.RECORD_NOT_FOUND.getErrorMessage());
+		}
+
+		userEntityByUserId.setFirstName(userDTO.getFirstName());
+		userEntityByUserId.setLastName(userDTO.getLastName());
+		userEntityByUserId.setEmail(userDTO.getEmail());
+		userEntityByUserId
+				.setEncryptedPassword(bcryptPasswordEncoder.encode(userDTO.getPassword()));
+
+		UserEntity updatedUserEntity = userRepository.save(userEntityByUserId);
+
+		BeanUtils.copyProperties(updatedUserEntity, returnUserDTO);
+
+		return returnUserDTO;
+	}
+
+	@Override
+	public void deleteUser(String userId)
+	{
+		UserEntity userEntityByUserId = userRepository.findByUserId(userId);
+
+		if (userEntityByUserId == null)
+		{
+			throw new UserServiceException(ErrorMessages.RECORD_NOT_FOUND.getErrorMessage());
+		}
+		userRepository.delete(userEntityByUserId);
+
 	}
 
 }
