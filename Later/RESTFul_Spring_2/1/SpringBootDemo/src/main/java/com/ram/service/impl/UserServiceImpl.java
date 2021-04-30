@@ -1,9 +1,13 @@
 package com.ram.service.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -131,6 +135,31 @@ public class UserServiceImpl implements UserService
 		}
 		userRepository.delete(userEntityByUserId);
 
+	}
+
+	@Override
+	public List<UserDTO> getUsers(int page, int limit)
+	{
+		List<UserDTO> userDTOList = new ArrayList<UserDTO>();
+		
+		if(page>1)
+		{
+			page = page-1; 
+		}
+		
+		Pageable pageable= PageRequest.of(page, limit);
+		Page<UserEntity> usersPage = userRepository.findAll(pageable);
+		
+		List<UserEntity> userEntityList = usersPage.getContent();
+		
+		for (UserEntity userEntity : userEntityList)
+		{
+			UserDTO userDTO = new UserDTO();
+			BeanUtils.copyProperties(userEntity, userDTO);
+			userDTOList.add(userDTO);
+		}
+		
+		return userDTOList;
 	}
 
 }
