@@ -1,0 +1,12 @@
+db.getUsers()
+db.createUser({	user: "peter",  pwd: "password",  roles:[{role: "root" , db:"admin"}]})
+db.dropUser("peter")
+db.dropAllUsers()
+db.auth("peter","password")
+
+
+C:\MongoDB\Server\3.6\bin>mongod.exe
+C:\MongoDB\Server\3.6\bin>mongod.exe --auth
+
+> db
+> use admin
