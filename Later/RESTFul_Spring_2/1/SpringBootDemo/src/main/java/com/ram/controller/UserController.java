@@ -109,7 +109,7 @@ public class UserController
 			userRestList.add(userRest);
 		}
 		
-		return userList;
+		return userRestList;
 	}
 
 }
