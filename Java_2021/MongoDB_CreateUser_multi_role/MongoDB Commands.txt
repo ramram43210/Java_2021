@@ -1,0 +1,10 @@
+db.getUsers()
+db.createUser({	user: "peter",  pwd: "password",  roles:[{role: "userAdmin" , db:"bookdb"},{ role: "readWrite", db: "bookdb" }]})
+db.auth("peter","password")
+db.dropAllUsers()
+
+C:\MongoDB\Server\3.6\bin>mongod.exe
+C:\MongoDB\Server\3.6\bin>mongod.exe --auth
+
+> db
+> use bookdb
