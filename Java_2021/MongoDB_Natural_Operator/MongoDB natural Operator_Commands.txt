@@ -1,0 +1,8 @@
+db.country.insertOne({"CountryName":"US"});
+db.country.insertOne({"CountryName":"UK"});
+db.country.insertOne({"CountryName":"AUS"});
+db.country.insertOne({"CountryName":"IND"});
+
+db.country.find();
+
+db.country.find().sort({$natural:-1})

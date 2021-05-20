@@ -1,0 +1,9 @@
+db.product.insert({"Name":"Peter","Products":{"TV":5000,"Fridge":10000}})
+db.product.insert({"Name":"John","Products":{"TV":10000,"Fridge":1000}})
+db.product.insert({"Name":"Dave","Products":{"TV":1000,"Fridge":2000}})
+
+db.product.group(
+ 	{key:{'Name':1},
+    reduce:function(curr,result)
+    { result.total += curr.Products.TV+curr.Products.Fridge;},initial:{total:0}}
+ )

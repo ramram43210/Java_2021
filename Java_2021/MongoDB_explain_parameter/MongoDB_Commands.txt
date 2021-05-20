@@ -1,0 +1,6 @@
+db.categories.find().explain()
+db.categories.find().explain(false)
+db.categories.find().explain(true)
+db.categories.find().explain("queryPlanner")
+db.categories.find().explain("executionStats")
+db.categories.find().explain("allPlansExecution")
