@@ -1,0 +1,41 @@
+db.employee.mapReduce(
+
+	function() { emit(this.emp_id,this.loanAmount); },
+	function(key,values) {return Array.sum(values)},
+	{
+		query:{loanStatus:"Active"},
+		out:"TotalLoan"
+	}
+)
+
+
+db.employee.mapReduce(
+
+	function() { emit(this.emp_id,this.loanAmount); },
+	function(key,values) {return Array.sum(values)},
+	{
+		query:{loanStatus:"Active"},
+		out:"TotalLoan"
+	}
+).find()
+
+db.employee.mapReduce(
+
+	function() { emit(this.emp_id,this.loanAmount); },
+	function(key,values) {return Array.sum(values)},
+	{
+		query:{loanStatus:"Expired"},
+		out:"TotalLoan"
+	}
+)
+
+db.employee.mapReduce(
+
+	function() { emit(this.emp_id,this.loanAmount); },
+	function(key,values) {return Array.sum(values)},
+	{
+		query:{loanStatus:"Expired"},
+		out:"TotalLoan"
+	}
+).find()
+

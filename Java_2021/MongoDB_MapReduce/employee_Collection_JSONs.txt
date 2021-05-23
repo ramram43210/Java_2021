@@ -1,0 +1,48 @@
+{ 
+    "_id" : ObjectId("60a729edf7735a2e0c99d9ab"), 
+    "emp_id" : 100.0, 
+    "name" : "Peter", 
+    "loanId" : 2001.0, 
+    "loanAmount" : 10000.0, 
+    "loanStatus" : "Active"
+},
+{ 
+    "_id" : ObjectId("60a72a2af7735a2e0c99d9b0"), 
+    "emp_id" : 100.0, 
+    "name" : "Peter", 
+    "loanId" : 2002.0, 
+    "loanAmount" : 5000.0, 
+    "loanStatus" : "Active"
+},
+{ 
+    "_id" : ObjectId("60a72a50f7735a2e0c99d9b8"), 
+    "emp_id" : 100.0, 
+    "name" : "Peter", 
+    "loanId" : 2003.0, 
+    "loanAmount" : 20000.0, 
+    "loanStatus" : "Expired"
+},
+{ 
+    "_id" : ObjectId("60a72a79f7735a2e0c99d9c0"), 
+    "emp_id" : 101.0, 
+    "name" : "John", 
+    "loanId" : 3001.0, 
+    "loanAmount" : 90900.0, 
+    "loanStatus" : "Active"
+},
+{ 
+    "_id" : ObjectId("60a72aa0f7735a2e0c99d9d0"), 
+    "emp_id" : 101.0, 
+    "name" : "John", 
+    "loanId" : 3002.0, 
+    "loanAmount" : 3000.0, 
+    "loanStatus" : "Expired"
+},
+{ 
+    "_id" : ObjectId("60a72abbf7735a2e0c99d9dc"), 
+    "emp_id" : 101.0, 
+    "name" : "John", 
+    "loanId" : 3003.0, 
+    "loanAmount" : 40000.0, 
+    "loanStatus" : "Expired"
+}
