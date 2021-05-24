@@ -1,0 +1,59 @@
+Create a new book
+
+	http://localhost:8080/books  
+
+	{
+	  "title" : "Spring boot JDBC", 
+	  "description": "Spring boot JDBC with examples"
+	}
+
+	{
+	  "title" : "Spring boot JPA", 
+	  "description": "Spring boot JPA With examples"
+	}
+	
+Create a new Author
+
+	http://localhost:8080/authors
+
+	{
+	  "name" : "Peter", 
+          "description": "Spring boot books"
+	}
+
+Assign the author to the book
+
+	http://localhost:8080/books/1/authors  
+	http://localhost:8080/authors/1
+	
+	http://localhost:8080/books/2/authors  
+	http://localhost:8080/authors/1
+
+	
+----------------------------------------------------------
+
+
+Create a new book
+
+	http://localhost:8080/books  
+
+	{
+	  "title" : "Java Collection", 
+	  "description": "Java Collections with examples"
+	}
+
+Create a new Author
+
+	http://localhost:8080/authors
+
+	{
+		  "name" : "John", 
+		  "description": "Java books"
+	}	
+
+Assign the author to the book
+
+	http://localhost:8080/books/3/authors  
+	http://localhost:8080/authors/2
+	
+	
