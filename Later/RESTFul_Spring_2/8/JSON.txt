@@ -1,0 +1,70 @@
+Create a new book
+
+	http://localhost:8080/books  
+
+	{
+	  "name" : "Spring boot JDBC" 
+	}
+
+	{
+	  "name" : "Spring boot JPA" 
+	}
+	
+Create a new publisher
+
+	http://localhost:8080/publishers  
+
+	{
+	  "name" : "Peter" 
+        }
+
+Link the book with the publisher
+
+	http://localhost:8080/bookPublishers
+
+	{
+	  "book" : "http://localhost:8080/books/1", 
+	  "publisher" : "http://localhost:8080/publishers/1", 
+	  "publishedDate": "2021-01-01"
+        }
+        
+        {
+	  "book" : "http://localhost:8080/books/2", 
+	  "publisher" : "http://localhost:8080/publishers/1", 
+	  "publishedDate": "2021-01-01"
+        }
+
+	
+----------------------------------------------------------
+
+
+Create a new book
+
+	http://localhost:8080/books  
+
+	{
+	  "name" : "Java Collection" 
+	}
+
+Create a new publisher
+
+	http://localhost:8080/publishers
+
+	{
+		"name" : "John" 
+	}	
+
+Link the book with the publisher
+
+	http://localhost:8080/bookPublishers
+
+	{
+	  "book" : "http://localhost:8080/books/3", 
+	  "publisher" : "http://localhost:8080/publishers/2", 
+	  "publishedDate": "2021-01-01"
+        }
+       
+      
+--------------------------------------------------------------------------------------
+	
+	
