@@ -1,0 +1,5 @@
+>mongod --replSet PeterReplicaSet --dbpath C:\data\db
+
+> rs.status()
+
+> rs.initiate()
