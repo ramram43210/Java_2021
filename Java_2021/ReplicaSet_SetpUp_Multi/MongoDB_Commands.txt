@@ -1,0 +1,19 @@
+>mongod --replSet PeterReplicaSet --dbpath C:\data\db --port 27017
+
+>mongod --replSet PeterReplicaSet --dbpath D:\data\db --port 27018
+
+>mongod --replSet PeterReplicaSet --dbpath E:\data\db --port 27019
+
+> rs.status()
+
+> rs.initiate()
+
+> rs.add("localhost:27018")
+
+> rs.add("localhost:27019")
+
+> mongo --port 27017
+
+> mongo --port 27018
+
+> mongo --port 27019
