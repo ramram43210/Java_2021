@@ -1,0 +1,21 @@
+>mongod --replSet PeterReplicaSet --dbpath C:\data\db --port 27017
+
+>mongod --replSet PeterReplicaSet --dbpath D:\data\db --port 27018
+
+>mongod --replSet PeterReplicaSet --dbpath E:\data\db --port 27019
+
+> rs.status()
+
+> mongo --port 27017
+
+> mongo --port 27018
+
+> mongo --port 27019
+
+> rs.remove("localhost:27018")
+
+> rs.remove("localhost:27019")
+
+> use local
+
+> db.dropDatabase()
