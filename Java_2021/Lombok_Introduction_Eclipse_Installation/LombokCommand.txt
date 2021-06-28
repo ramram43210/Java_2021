@@ -1,0 +1,3 @@
+C:\Users\Home\.m2\repository\org\projectlombok\lombok\1.18.20>java -jar lombok-1.18.20.jar
+
+C:\Users\Home\.m2\repository\org\projectlombok\lombok\1.18.20>java -jar lombok-1.18.20.jar delombok src -d src-delomboked
