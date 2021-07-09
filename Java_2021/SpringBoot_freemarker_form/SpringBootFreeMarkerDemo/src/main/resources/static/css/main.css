@@ -1,0 +1,9 @@
+body {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body * {
+    font-weight: 400;
+}

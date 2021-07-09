@@ -1,0 +1,65 @@
+Create some new books
+
+http://localhost:8080/books
+Http Method - POST
+
+{
+  "title" : "Spring boot", 
+  "description": "Spring boot Tutorial with examples"
+}
+
+{
+  "title" : "Java", 
+  "description": "Java Tutorial with examples"
+}
+
+{
+  "title" : "JSON", 
+  "description": "JSON Tutorial with examples"
+}
+
+------------------------------------------------------
+
+Find book with id=1 
+
+http://localhost:8080/books/1
+Http Method - GET
+
+------------------------------------------------------
+
+Find all books
+
+http://localhost:8080/books
+Http Method - GET
+
+----------------------------------------------------------
+
+Update book id 2
+
+http://localhost:8080/books/2
+Http Method - PATCH
+
+{
+   "description": "Java Tutorial with 1000 examples"
+}
+
+---------------------------------------------------------
+
+Replace book id 2
+
+http://localhost:8080/books/2
+Http Method - PUT
+
+{
+  "title" : "Java8", 
+  "description": "Java Tutorial with examples - Replaced"
+}
+
+-----------------------------------------------------------
+
+Delete book id 2
+
+http://localhost:8080/books/2
+Http Method - DELETE
+
+--------------------------------------------------------------

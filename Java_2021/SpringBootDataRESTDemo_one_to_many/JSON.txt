@@ -1,0 +1,80 @@
+Create a new category
+
+	http://localhost:8080/bookCategories
+	Http Method - POST
+
+	{
+	  "name" : "Spring boot" 
+	}
+
+Create a new book
+
+	http://localhost:8080/books  
+	Http Method - POST
+
+
+	{
+	  "title" : "Spring boot by Ram", 
+	  "description": "Spring boot JDBC"
+	}
+
+	{
+	  "title" : "Spring boot by Peter", 
+	  "description": "Spring boot JPA"
+	}
+
+Assign book to category
+
+	http://localhost:8080/books/1/bookCategory
+	Http Method - PUT
+	Content-Type:text/uri-list
+
+	http://localhost:8080/bookCategories/1
+	
+	
+
+	http://localhost:8080/books/2/bookCategory
+	Http Method - PUT
+	Content-Type:text/uri-list
+
+	http://localhost:8080/bookCategories/1
+
+----------------------------------------------------------
+
+Create a new category
+
+	http://localhost:8080/bookCategories
+	Http Method - POST
+
+	{
+	  "name" : "Java" 
+	}
+
+Create a new book
+
+	http://localhost:8080/books  
+	Http Method - POST
+
+	{
+	  "title" : "Java by Dave", 
+	  "description": "Java Collections"
+	}
+
+	{
+	  "title" : "Java by John", 
+	  "description": "Java Files"
+	}
+
+Assign book to category
+
+	http://localhost:8080/books/3/bookCategory
+	Http Method - PUT
+	Content-Type:text/uri-list
+	
+	http://localhost:8080/bookCategories/2
+
+	http://localhost:8080/books/4/bookCategory
+	Http Method - PUT
+	Content-Type:text/uri-list
+	
+	http://localhost:8080/bookCategories/2
