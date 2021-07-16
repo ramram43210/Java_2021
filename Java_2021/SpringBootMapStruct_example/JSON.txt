@@ -1,0 +1,19 @@
+http://localhost:8080/products
+
+{
+    "name":"TV",
+    "description": "Super LED TV",
+    "price":"30000"
+}
+
+{
+    "name":"Fridge",
+    "description": "Super Fridge",
+    "price":"50000"
+}
+
+{
+    "name":"Fan",
+    "description": "Super Fan",
+    "price":"2000"
+}
