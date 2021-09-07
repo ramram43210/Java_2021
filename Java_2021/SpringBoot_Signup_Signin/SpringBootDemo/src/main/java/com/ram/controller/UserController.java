@@ -88,9 +88,10 @@ public class UserController
 	{
 		OperationStatusModel operationStatusModel = new OperationStatusModel();
 		operationStatusModel.setOperationName(RequestOperationName.DELETE.name());
-		operationStatusModel.setOperationResult(RequestOperationResult.SUCCESS.name());
-
+		
 		userService.deleteUser(userId);
+		
+		operationStatusModel.setOperationResult(RequestOperationResult.SUCCESS.name());
 		return operationStatusModel;
 	}
 
