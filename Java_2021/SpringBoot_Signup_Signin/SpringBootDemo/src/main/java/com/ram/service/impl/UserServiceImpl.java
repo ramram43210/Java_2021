@@ -142,7 +142,7 @@ public class UserServiceImpl implements UserService
 	{
 		List<UserDTO> userDTOList = new ArrayList<UserDTO>();
 		
-		if(page>1)
+		if(page>0)
 		{
 			page = page-1; 
 		}
