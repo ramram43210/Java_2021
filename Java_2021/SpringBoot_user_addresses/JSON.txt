@@ -1,0 +1,82 @@
+http://localhost:8080/users
+Http Method : POST
+
+{
+    "firstName":"Peter",
+    "lastName": "D",
+    "email":"peter@gmail.com",
+    "password":"Pass123"
+}
+
+
+http://localhost:8080/login
+Http Method : POST
+
+{
+    "email":"peter@gmail.com",
+    "password":"Pass123"
+}
+
+------------------------------------------
+http://localhost:8080/user-app-ws/users
+Http Method : POST
+
+{
+    "firstName":"Arun",
+    "lastName":"P",
+    "email":"arun@yahoo.com",
+    "password":"Pass123",
+    "addresses":[
+        {
+            "city":"Bangalore",
+            "country":"India",
+            "streetName":"15th Cross",
+            "postalCode":"567099",
+            "type":"Billing"
+        },
+       {
+	   "city":"Chennai",
+	   "country":"India",
+	   "streetName":"123th Cross",
+	   "postalCode":"678543",
+	   "type":"Shipping"
+        }
+    ]
+}
+
+---------------------------------------------
+
+http://localhost:8080/user-app-ws/users
+Http Method : PUT
+
+{
+    "firstName":"Arun",
+    "lastName":"Kumar",
+    "email":"arun@yahoo.com",
+    "password":"Pass123",
+    "addresses":[
+        {
+            "city":"Bangalore",
+            "country":"India",
+            "streetName":"909th Cross",
+            "postalCode":"789889",
+            "type":"Billing"
+        },
+       {
+	   "city":"Chennai",
+	   "country":"India",
+	   "streetName":"500th Cross",
+	   "postalCode":"000998",
+	   "type":"Shipping"
+        },
+        {
+	   "city":"Delhi",
+	   "country":"India",
+	   "streetName":"123th Cross",
+	   "postalCode":"908543",
+	   "type":"Shipping"
+        }
+    ]
+}
+
+--------------------------------------------
