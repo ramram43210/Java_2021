@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "ISO-8859-1" />
+      <title>Add Users</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
+      <script>
+         $(document).ready(function() {
+            $("button").click(function() {
+               var userModel = {
+           		   firstName:"Juli",
+           		   lastName:"k",
+           		   email:"Juli@yahoo.com",
+           		   password:"Pass123",
+               };
+               var requestJSON = JSON.stringify(userModel);
+               $.ajax({
+                  type : "POST",
+                  url : "http://localhost:8080/user-app-ws/users",
+                  headers : {
+                     "Content-Type" : "application/json"
+                  },
+                  data : requestJSON,
+                  success : function(data) {
+                     alert(data);
+                  },
+                  error : function(data) {
+                  }
+               });
+            });
+         });
+      </script>
+   </head>
+   
+   <body>
+      <button>Click here to submit the form</button>
+   </body>
+</html>
