@@ -1,0 +1,16 @@
+sudo yum install epel-release
+sudo amazon-linux-extras install epel
+sudo yum install erlang
+sudo yum install rabbitmq-server
+
+sudo rabbitmq-plugins list
+sudo rabbitmq-plugins enable rabbitmq_management
+sudo systemctl enable rabbitmq-server
+sudo systemctl start rabbitmq-server
+sudo systemctl stop rabbitmq-server
+
+whereis rabbitmq
+sudo chown -R ec2-user: /var/log/rabbitmq
+
+
+http://ec2-52-23-200-158.compute-1.amazonaws.com:15672/
