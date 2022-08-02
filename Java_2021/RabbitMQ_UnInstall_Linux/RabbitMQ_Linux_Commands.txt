@@ -1,0 +1,3 @@
+sudo yum remove rabbitmq-server
+sudo yum remove erlang
+sudo yum remove epel-release
