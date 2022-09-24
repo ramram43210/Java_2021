@@ -1,0 +1,22 @@
+https://kafka.apache.org/downloads
+
+----------------------------------------------------------------------------------------------
+
+zookeeper-server-start.bat D:/Software/kafka_2.13-3.2.3/config/zookeeper.properties
+
+kafka-server-start.bat D:/Software/kafka_2.13-3.2.3/config/server.properties
+
+----------------------------------------------------------------------------------------------
+
+kafka-topics.bat --create --topic AnimalTopic --bootstrap-server localhost:9092
+
+kafka-console-producer.bat --topic AnimalTopic --bootstrap-server localhost:9092
+
+kafka-console-consumer.bat --topic AnimalTopic --from-beginning --bootstrap-server localhost:9092
+
+kafka-topics.bat --create --topic OrderTopic --bootstrap-server localhost:9092
+
+kafka-topics.bat --create --topic UserTopic --bootstrap-server localhost:9092
+
+kafka-topics.bat --list --bootstrap-server localhost:9092
+
