@@ -1,0 +1,3 @@
+yum list java*
+sudo yum remove java*
+java -version
