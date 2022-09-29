@@ -1,0 +1,5 @@
+yum list java*
+sudo yum remove java*
+java -version
+sudo yum install <Package name>
+Which Java
