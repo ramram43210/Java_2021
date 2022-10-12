@@ -1,0 +1,16 @@
+java -version
+wget https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz
+tar zxvf jdk-19_linux-x64_bin.tar.gz
+sudo mv jdk-19 /usr/share/
+
+
+sudo vim /etc/profile
+
+#add
+export JAVA_HOME=/usr/share/jdk-19
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+
+javac HelloWorld.java
+java HelloWorld
