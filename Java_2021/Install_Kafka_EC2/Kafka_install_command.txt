@@ -1,0 +1,31 @@
+https://kafka.apache.org/downloads
+
+Java -version
+
+wget https://downloads.apache.org/kafka/3.3.1/kafka_2.13-3.3.1.tgz
+tar xzf kafka_2.13-3.3.1.tgz
+
+sudo vim /etc/profile
+/home/ec2-user/kafka_2.13-3.3.1/bin:
+
+----------------------------------------------------------------------------------------------
+
+zookeeper-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/zookeeper.properties
+
+kafka-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/server.properties
+
+
+----------------------------------------------------------------------------------------------
+
+kafka-topics.sh --create --topic AnimalTopic --bootstrap-server localhost:9092
+
+kafka-console-producer.sh --topic AnimalTopic --bootstrap-server localhost:9092
+
+kafka-console-consumer.sh --topic AnimalTopic --from-beginning --bootstrap-server localhost:9092
+
+kafka-topics.sh --create --topic OrderTopic --bootstrap-server localhost:9092
+
+kafka-topics.sh --create --topic UserTopic --bootstrap-server localhost:9092
+
+kafka-topics.sh --list --bootstrap-server localhost:9092
+
