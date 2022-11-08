@@ -1,0 +1,24 @@
+zookeeper-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/zookeeper.properties
+JMX_PORT=8004 kafka-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/server.properties
+
+kafka-topics.sh --bootstrap-server ec2-18-234-165-202.compute-1.amazonaws.com:8082 --topic AnimalTopic --create --partitions 3 --replication-factor 1
+kafka-console-producer.sh --topic AnimalTopic --bootstrap-server ec2-18-234-165-202.compute-1.amazonaws.com:8082
+kafka-console-consumer.sh --bootstrap-server ec2-18-234-165-202.compute-1.amazonaws.com:8082 --topic AnimalTopic
+
+---------------------------------------------------------------------------------------------------------------
+
+./sbt clean dist
+
+bin/cmak -DConfig.file=conf/application.conf -Dhttp.port=8080
+
+http://ec2-18-234-165-202.compute-1.amazonaws.com:8080/
+
+
+ec2-18-234-165-202.compute-1.amazonaws.com:2181
+
+-----------------------------------------------------------------------------------------------------------------
+
+https://github.com/yahoo/CMAK
+
+https://www.graalvm.org/downloads/
+
