@@ -22,7 +22,7 @@ public class KafkaConsumerConfig
 	public ConsumerFactory<String, String> consumerFactory()
 	{
 		Map<String, Object> props = new HashMap<>();
-		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "ec2-18-212-197-106.compute-1.amazonaws.com:8082");
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
