@@ -1,0 +1,12 @@
+zookeeper-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/zookeeper.properties
+kafka-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/server.properties
+
+kafka-topics.sh --bootstrap-server ec2-18-212-197-106.compute-1.amazonaws.com:8082 --topic AnimalTopic --create --partitions 3 --replication-factor 1
+kafka-console-producer.sh --topic AnimalTopic --bootstrap-server ec2-18-212-197-106.compute-1.amazonaws.com:8082
+
+
+
+
+
+
+
