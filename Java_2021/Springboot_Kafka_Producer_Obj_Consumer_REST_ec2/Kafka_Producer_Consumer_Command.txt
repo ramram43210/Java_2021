@@ -1,0 +1,22 @@
+zookeeper-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/zookeeper.properties
+kafka-server-start.sh /home/ec2-user/kafka_2.13-3.3.1/config/server.properties
+
+kafka-topics.sh --bootstrap-server ec2-54-209-254-211.compute-1.amazonaws.com:8082 --topic AnimalTopic --create --partitions 3 --replication-factor 1
+
+---------------------------------------------------------------------------------------------------------
+HTTP Method: POST
+URL: http://localhost:9090/publish
+
+{
+    "name":"Lion",
+    "color":"Orange Brown",
+    "animalType":"Wild Animal"    
+}
+
+{
+    "name":"Cat",
+    "color":"White",
+    "animalType":"Domestic Animal"    
+}
+
+-------------------------------------------------------------------------------------------------------------
